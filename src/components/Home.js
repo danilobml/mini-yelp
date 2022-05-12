@@ -8,7 +8,7 @@ import SmallCard from "./SmallCard/SmallCard";
 //import ClipLoader from "react-spinners/ClipLoader";
 
 function Home() {
-  const [restaurants, setRestaurants] = useState(data);
+  const restaurants=[...data];
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState("restaurant");
   const [searchText, setSearchText] = useState();

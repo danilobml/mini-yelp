@@ -1,48 +1,47 @@
 import React from "react";
+import ReactStars from 'react-stars'
 import "./SmallCard.css";
-import { ListGroup, ListGroupItem, Card,Col, Row } from "react-bootstrap";
+import { ListGroup, ListGroupItem, Card } from "react-bootstrap";
 
 export default function SmallCard({ restaurant }) {
-  console.log(restaurant);
+  //console.log(restaurant);
   return (
     <div>
-      CARD for RESTAURANT
-      <Card style={{ width: "18rem", border:'primary' }}>
-        <Card.Img variant="top" bsPrefix={'card-img'} src={restaurant.imgUrl} />
+   
+      
+      <Card  style={{ width: "18rem" }}>
+        <Card.Img variant="top" bsPrefix={"card-img"} src={restaurant.imgUrl} />
         <Card.Body>
-          <Card.Title>{restaurant.name}</Card.Title>
+          <Card.Title>1. {restaurant.name}</Card.Title>
+
           <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <ReactStars
+                        count={5}
+                        onChange={null}
+                        edit={false}
+                        size={24}
+                        color2={'#ffd700'}
+                        value = {4.5} />
+          <span>{restaurant.reviews.length}</span>  
           </Card.Text>
+          <p>"{restaurant.reviews[0].review}"</p>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem> 
-
-            Address: {restaurant.address}, {restaurant.city},
-            {restaurant["postal code"]}
-
+          <ListGroupItem></ListGroupItem>
+          <ListGroupItem>
+            <span>Tags:</span> {restaurant.categories.join(", ")}
           </ListGroupItem>
-          <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-          <ListGroupItem>Vestibulum at eros</ListGroupItem>
+          <ListGroupItem>
+            <span>Address:</span> {restaurant.address}, {restaurant.city},
+            {" " + restaurant["postal code"]}
+          </ListGroupItem>
         </ListGroup>
         <Card.Body>
-          <Card.Link href="#">Card Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+          {Object.keys(restaurant.hours).map((x) => (
+            <p>{x + ": " + restaurant.hours[x]}</p>
+          ))}
         </Card.Body>
       </Card>
-
-
-
-
-      <h1>{restaurant.name}</h1>
-      <h3>
-        Address: {restaurant.address}, {restaurant.city},
-        {restaurant["postal code"]}
-      </h3>
-      <h1>{restaurant.name}</h1>
-      <h1>{restaurant.name}</h1>
-      <h1>{restaurant.name}</h1>
     </div>
   );
 }
