@@ -7,4 +7,10 @@
     padding: 6px;
     cursor: pointer;
     font-weight: 900 !important;
+    text-align: center;
 } 
+
+.open {
+    background-color: lightblue;
+    font-weight: 800 !important;
+}

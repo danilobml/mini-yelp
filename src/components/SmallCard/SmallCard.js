@@ -49,9 +49,7 @@ export default function SmallCard({ restaurant }) {
         <Card.Body>        
           <HoursCollapsible hours={restaurant.hours}/>
         </Card.Body>
-      </Card>
-
-      
+      </Card>      
 
     </div>
     </>
