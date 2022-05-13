@@ -7,7 +7,7 @@ export default function SmallCard({ restaurant }) {
       CARD for RESTAURANT
       <h1>{restaurant.name}</h1>
       <h3>
-        Address: {restaurant.address}, {restaurant.city}, {restaurant["postal code"]}{" "}
+        Address: {restaurant.address}, {restaurant.city}, {restaurant["postal code"]}
       </h3>
       <h1>{restaurant.name}</h1>
       <h1>{restaurant.name}</h1>
