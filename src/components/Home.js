@@ -3,6 +3,7 @@ import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
+import { Image } from "react-bootstrap";
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
@@ -10,12 +11,15 @@ import SmallCard from "./SmallCard/SmallCard";
 function Home() {
   const [restaurants, setRestaurants] = useState(data);
   const [isError, setIsError] = useState(false);
-  const [filter, setFilter] = useState("restaurant");
+  const [filter, setFilter] = useState("");
   const [userInput, setUserInput] = useState("");
   const [searchText, setSearchText] = useState("");
   const searchRestaurant = (nameRestaurant) => {
     //setRestaurant(idRestaurant);
   };
+  const randomRestaurant = Math.floor(Math.random() * restaurants.length);
+
+  console.log(searchText);
 
   /* /restaurants/id */
   //   useEffect(() => {
@@ -48,12 +52,20 @@ function Home() {
   };
 
   const handleUserInput = (e) => {
-    setUserInput(e.target.value);
+    if (e.target.value) {
+      setUserInput(e.target.value);
+    } else {
+      setUserInput("");
+    }
   };
 
   const handleSearch = (event) => {
     event.preventDefault();
-    setSearchText(userInput);
+    if (userInput) {
+      setSearchText(userInput);
+    } else {
+      setSearchText("");
+    }
     setUserInput("");
     event.target.reset();
   };
@@ -67,7 +79,7 @@ function Home() {
   } else {
     return (
       <div className="Home">
-        <img src="../images/home.jpg" />
+        <Image fluid src={restaurants[randomRestaurant].imgUrl} />
         <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
         <SmallCard restaurant={restaurants[0]} />
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
