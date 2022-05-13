@@ -3,6 +3,8 @@ import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Image } from "react-bootstrap";
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
@@ -10,14 +12,14 @@ import SmallCard from "./SmallCard/SmallCard";
 function Home() {
   const restaurants=[...data];
   const [isError, setIsError] = useState(false);
-  const [filter, setFilter] = useState("restaurant");
-  const [searchText, setSearchText] = useState();
+  const [filter, setFilter] = useState("");
+  const [userInput, setUserInput] = useState("");
+  const [searchText, setSearchText] = useState("");
   const searchRestaurant = (nameRestaurant) => {
     //setRestaurant(idRestaurant);
   };
+  const randomRestaurant = Math.floor(Math.random() * restaurants.length);
 
-  console.log(restaurants[0]);
-  console.log(filter);
   console.log(searchText);
 
   /* /restaurants/id */
@@ -50,11 +52,23 @@ function Home() {
     setFilter(e.target.value);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-    console.log("hey");
-    e.target.reset();
+  const handleUserInput = (e) => {
+    if (e.target.value) {
+      setUserInput(e.target.value);
+    } else {
+      setUserInput("");
+    }
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (userInput) {
+      setSearchText(userInput);
+    } else {
+      setSearchText("");
+    }
+    setUserInput("");
+    event.target.reset();
   };
 
   if (isError) {
@@ -66,8 +80,8 @@ function Home() {
   } else {
     return (
       <div className="Home">
-        <img src="../images/home.jpg" />
-        <Search searchRestaurant={handleSearch} handleFilter={handleFilter} />
+        <Image fluid src={restaurants[randomRestaurant].imgUrl} />
+        <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
         <SmallCard restaurant={restaurants[0]} />
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
 
