@@ -11,14 +11,11 @@ function Home() {
   const [restaurants, setRestaurants] = useState(data);
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState("restaurant");
-  const [searchText, setSearchText] = useState();
+  const [userInput, setUserInput] = useState("");
+  const [searchText, setSearchText] = useState("");
   const searchRestaurant = (nameRestaurant) => {
     //setRestaurant(idRestaurant);
   };
-
-  console.log(restaurants[0]);
-  console.log(filter);
-  console.log(searchText);
 
   /* /restaurants/id */
   //   useEffect(() => {
@@ -50,11 +47,15 @@ function Home() {
     setFilter(e.target.value);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-    console.log("hey");
-    e.target.reset();
+  const handleUserInput = (e) => {
+    setUserInput(e.target.value);
+  };
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchText(userInput);
+    setUserInput("");
+    event.target.reset();
   };
 
   if (isError) {
@@ -67,7 +68,7 @@ function Home() {
     return (
       <div className="Home">
         <img src="../images/home.jpg" />
-        <Search searchRestaurant={handleSearch} handleFilter={handleFilter} />
+        <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
         <SmallCard restaurant={restaurants[0]} />
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
 
