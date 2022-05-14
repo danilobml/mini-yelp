@@ -102,8 +102,10 @@ function Home() {
     return (
       <div className="Home">
         <MyNavbarRest handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
-        <Image fluid src={restaurants[randomRestaurant].imgUrl} className="home-image position-relative" />
-        <Image src={logoM} className="main-logo position-absolute" />
+        <Container>
+          <Image fluid src={restaurants[randomRestaurant].imgUrl} className="home-image position-relative" />
+          <Image src={logoM} className="main-logo position-absolute" />
+        </Container>
 
         <div className="smallCardAndMap">
           <div className="MapAll">
