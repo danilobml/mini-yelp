@@ -33,7 +33,7 @@ export default function HoursCollapsible({ hours }) {
 
 
   const currentDayOpen = (day, time, num) => {
-    console.log(num);
+    //console.log(num);
     //console.log(today);
     
     const startTime = time ? time.substring(0, 5) + ":00" : "";

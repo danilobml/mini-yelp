@@ -3,15 +3,16 @@ import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Image } from "react-bootstrap";
 import MapAll from "./MapAll/MapAll";
+import "./Home.css";
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
 
 function Home() {
-  const restaurants=[...data];
+  const restaurants = [...data];
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState("");
   const [userInput, setUserInput] = useState("");
@@ -82,13 +83,26 @@ function Home() {
     return (
       <div className="Home">
         <Image fluid src={restaurants[randomRestaurant].imgUrl} />
-        <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
-        {/* <SmallCard restaurant={restaurants[0]} /> */}
-         {  restaurants && restaurants.map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />) }
-         { restaurants &&<MapAll restaurants={restaurants}/>}
+        <Search
+          handleSearch={handleSearch}
+          handleFilter={handleFilter}
+          handleUserInput={handleUserInput}
+        />
 
-        {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
+        <div className="smallCardAndMap">
+          <div className="MapAll">
+            {restaurants && <MapAll restaurants={restaurants} />}
 
+            {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
+          </div>
+
+          <div className="smallCards">
+            {restaurants &&
+              restaurants.map((restaurant, index) => (
+                <SmallCard key={index} restaurant={restaurant} />
+              ))}
+          </div>
+        </div>
         <Footer />
       </div>
     );

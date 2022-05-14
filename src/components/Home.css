@@ -1,0 +1,35 @@
+.smallCardAndMap {
+    display: flex;
+    flex-direction: column;
+    width: 2000px;
+    height: 1000px;
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+
+}
+
+.MapAll {
+    margin: 40px 20px;
+    height: 100%;
+
+    width: 100%;
+
+    object-fit: cover;
+}
+
+.MapAll>div {
+    border-radius: 35px !important;
+
+}
+
+
+.MapAll[hidden] {
+    display: none !important;
+}
+
+.smallCards {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    text-align: center;
+}
