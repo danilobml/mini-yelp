@@ -20,7 +20,6 @@ export default function SmallCard({ restaurant }) {
           <Card.Img variant="top" bsPrefix={"card-img"} src={restaurant.imgUrl} onClick={handleRedirectToRestaurant} />
           <Card.Body>
             <Card.Title onClick={handleRedirectToRestaurant}>1. {restaurant.name}</Card.Title>
-
             <Card.Text>
               <div id="address">
                 <span>Address:</span> {restaurant.address}, {restaurant.city},{" " + restaurant["postal code"]}
