@@ -3,13 +3,14 @@ import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from "react-bootstrap";
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
 
 function Home() {
-  const [restaurants, setRestaurants] = useState(data);
+  const restaurants=[...data];
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState("");
   const [userInput, setUserInput] = useState("");

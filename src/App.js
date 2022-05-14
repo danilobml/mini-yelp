@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Restaurant from "./components/Restaurant/Restaurant";
 import data from "./data/data.json";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const restaurants = data;
