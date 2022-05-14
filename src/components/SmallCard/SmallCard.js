@@ -32,8 +32,8 @@ export default function SmallCard({ restaurant }) {
                         edit={false}
                         size={24}
                         color2={'#ffd700'}
-                        value = {4.5} />
-          <p id="avgRating">({restaurant.reviews.length})</p>  
+                        value = {restaurant.stars} />
+          <p id="avgRating">(Ratings: {restaurant.reviews.length})</p>  
           </div>
           </Card.Text>
           <p>"{restaurant.reviews[0].review}"</p>

@@ -5,6 +5,7 @@ import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Image } from "react-bootstrap";
+import MapAll from "./MapAll/MapAll";
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
@@ -82,7 +83,10 @@ function Home() {
       <div className="Home">
         <Image fluid src={restaurants[randomRestaurant].imgUrl} />
         <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
-        <SmallCard restaurant={restaurants[0]} />
+        {/* <SmallCard restaurant={restaurants[0]} /> */}
+         {  restaurants && restaurants.map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />) }
+         { restaurants &&<MapAll restaurants={restaurants}/>}
+
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
 
         <Footer />
