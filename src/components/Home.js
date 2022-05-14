@@ -1,17 +1,24 @@
+import "./Home.css";
 import React, { useState, useEffect } from "react";
 import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Image } from "react-bootstrap";
+
+
 import MapAll from "./MapAll/MapAll";
+
+import MyNavbar from "../Navbar/MyNavbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Image, Container, Row } from "react-bootstrap";
+import logoM from "./images/logo-main.png";
+
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
 
 function Home() {
-  const restaurants=[...data];
+  const restaurants = [...data];
   const [isError, setIsError] = useState(false);
   const [filter, setFilter] = useState("");
   const [userInput, setUserInput] = useState("");
@@ -81,11 +88,23 @@ function Home() {
   } else {
     return (
       <div className="Home">
-        <Image fluid src={restaurants[randomRestaurant].imgUrl} />
-        <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
+
+        <MyNavbar />
+        <Container>
+          <Image fluid src={restaurants[randomRestaurant].imgUrl} className="position-relative" />
+          <Image src={logoM} className="main-logo position-absolute" />
+          <Container className="postion-absolute">
+            <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} style={{ position: "absolute", top: "0" }} />
+          </Container>
+        </Container>
+
         {/* <SmallCard restaurant={restaurants[0]} /> */}
          {  restaurants && restaurants.map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />) }
          { restaurants &&<MapAll restaurants={restaurants}/>}
+
+
+   
+       
 
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
 
