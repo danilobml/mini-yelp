@@ -1,8 +1,10 @@
 import { Map, Marker,ZoomControl } from "pigeon-maps";
+
 import "./MapAll.css";
 
 const MapAll = ({ restaurants }) => {
   console.log(restaurants);
+ 
 
 
   const avgLat=restaurants.reduce(function(acc, restaurant ) {return acc+ restaurant.latitude}, 0)/restaurants.length;
@@ -35,7 +37,7 @@ const MapAll = ({ restaurants }) => {
   if(latsDiff>5&&lngsDiff<15) zoomMap=6;
   if(latsDiff>1&&lngsDiff<5) zoomMap=8;
   if(latsDiff<0.1&&lngsDiff<1) zoomMap=10;
-  if(latsDiff<0.1&&lngsDiff<0.1){ zoomMap=15;}
+  if(latsDiff<0.1&&lngsDiff<0.1){ zoomMap=14;}
   else {zoomMap=1; console.log("lastcase")};
   console.log(zoomMap);
 
@@ -43,10 +45,12 @@ const MapAll = ({ restaurants }) => {
 
     const avgLocation =[avgLat, avgLng]
 
+    const color = `hsl(0, 100%, 50%)`
+
   return (
    
     <Map className="Map"  defaultCenter={avgLocation}  defaultZoom={zoomMap}>
-      {restaurants.map((restaurant, index) =>  <Marker kex={index} width={45} anchor={[restaurant.latitude, restaurant.longitude] } />   )};
+      {restaurants.map((restaurant, index) =>  <Marker kex={index} color={color} width={45} anchor={[restaurant.latitude, restaurant.longitude]  } />   )};
       <ZoomControl />
     </Map>
 
