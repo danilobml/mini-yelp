@@ -1,0 +1,10 @@
+.main-logo {
+    width: 250px;
+    z-index: 1000;
+    left: 40%;
+    top: 45%;
+}
+
+.search-bar{
+    position:absolute;
+}
