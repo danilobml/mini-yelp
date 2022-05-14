@@ -6,8 +6,8 @@
     "city": "San Francisco",
     "state": "CA",
     "postal code": "94107",
-    "latitude": 37.7817529521,
-    "longitude": -122.39612197,
+    "latitude": 	30.525058,
+    "longitude":  23.004954,
     "stars": 4.5,
     "categories": ["Mexican", "Burgers", "Gastropubs"],
     "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",
@@ -39,8 +39,8 @@
     "city": "Lovely Village",
     "state": "NY",
     "postal code": "94107",
-    "latitude": 58.7817529521,
-    "longitude": -123.39612197,
+    "latitude": 	30.525016,
+    "longitude":  23.004954,
     "stars": 3,
     "categories": ["Polish", "Pierogi", "Bar"],
     "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",
@@ -72,8 +72,110 @@
     "city": "Lovely Village",
     "state": "NY",
     "postal code": "94107",
-    "latitude": 58.7817529521,
-    "longitude": -123.39612197,
+    "latitude": 	30.525808,
+    "longitude":  23.004954,
+    "stars": 3,
+    "categories": ["Polish", "Pierogi", "Bar"],
+    "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",
+
+    "hours": {
+      "Monday": "10:00-21:00",
+      "Tuesday": "10:00-21:00",
+      "Friday": "10:00-21:00",
+      "Wednesday": "10:00-21:00",
+      "Thursday": "10:00-21:00",
+      "Sunday": "11:00-18:00",
+      "Saturday": "10:00-21:00"
+    },    "reviews": [
+        {
+          "rating": 5,
+          "review": "Lecker und sehr nette Bedienung"
+        },
+        {
+          "rating": 4,
+          "review": "Realy nice place with good food, but not exceptionnel"
+        }
+      ]
+
+  },
+
+
+
+  {
+    "business_id": "tnhfDv6Il8EaGSXZGiuQGg",
+    "name": "Garaje0000",
+    "address": "475 3rd St",
+    "city": "San Francisco",
+    "state": "CA",
+    "postal code": "94107",
+    "latitude": 	30.525408,
+    "longitude":  23.004954,
+    "stars": 4.5,
+    "categories": ["Mexican", "Burgers", "Gastropubs"],
+    "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",
+
+    "hours": {
+      "Monday": "10:00-21:00",
+      "Tuesday": "10:00-21:00",
+      "Friday": "10:00-21:00",
+      "Wednesday": "10:00-21:00",
+      "Thursday": "10:00-21:00",
+      "Sunday": "11:00-18:00",
+      "Saturday": "10:00-21:00"
+    },
+    "reviews": [
+        {
+          "rating": 5,
+          "review": "Lecker und sehr nette Bedienung"
+        },
+        {
+          "rating": 4,
+          "review": "Realy nice place with good food, but not exceptionnel"
+        }
+      ]
+  },
+  {
+    "business_id": "tnhfDv7Il8XZGiuQGg1234",
+    "name": "Grannys Delicatesses111",
+    "address": "123 Cute Street",
+    "city": "Lovely Village",
+    "state": "NY",
+    "postal code": "94107",
+    "latitude": 	30.520008,
+    "longitude":  23.004954,
+    "stars": 3,
+    "categories": ["Polish", "Pierogi", "Bar"],
+    "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",
+
+    "hours": {
+      "Monday": "10:00-21:00",
+      "Tuesday": "10:00-21:00",
+      "Friday": "10:00-21:00",
+      "Wednesday": "10:00-21:00",
+      "Thursday": "10:00-21:00",
+      "Sunday": "11:00-18:00",
+      "Saturday": "10:00-21:00"
+    },
+    "reviews": [
+        {
+          "rating": 5,
+          "review": "Lecker und sehr nette Bedienung"
+        },
+        {
+          "rating": 4,
+          "review": "Realy nice place with good food, but not exceptionnel"
+        }
+      ]
+  },
+  {
+    "business_id": "tnhfDv8Il8XZGiuQGg1234",
+    "name": "Grannys Delicatesses222",
+    "address": "123 Cute Street",
+    "city": "Lovely Village",
+    "state": "NY",
+    "postal code": "94107",
+    "latitude": 	30.525008,
+    "longitude":  23.090995,
     "stars": 3,
     "categories": ["Polish", "Pierogi", "Bar"],
     "imgUrl": "https://i0.wp.com/zweihunderteins.com/wp-content/uploads/2021/09/Restaurant_Header_2.jpg?resize=2000%2C1200&ssl=1",

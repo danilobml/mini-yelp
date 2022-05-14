@@ -5,8 +5,11 @@ import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 import MapAll from "./MapAll/MapAll";
+import "./Home.css";
 
 import MyNavbar from "../Navbar/MyNavbar";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -89,6 +92,7 @@ function Home() {
     return (
       <div className="Home">
 
+
         <MyNavbar />
         <Container>
           <Image fluid src={restaurants[randomRestaurant].imgUrl} className="position-relative" />
@@ -98,9 +102,7 @@ function Home() {
           </Container>
         </Container>
 
-        {/* <SmallCard restaurant={restaurants[0]} /> */}
-         {  restaurants && restaurants.map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />) }
-         { restaurants &&<MapAll restaurants={restaurants}/>}
+    
 
 
    
@@ -108,6 +110,21 @@ function Home() {
 
         {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
 
+
+        <div className="smallCardAndMap">
+          <div className="MapAll">
+            {restaurants && <MapAll restaurants={restaurants} />}
+
+            {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
+          </div>
+
+          <div className="smallCards">
+            {restaurants &&
+              restaurants.map((restaurant, index) => (
+                <SmallCard key={index} restaurant={restaurant} />
+              ))}
+          </div>
+        </div>
         <Footer />
       </div>
     );

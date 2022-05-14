@@ -1,0 +1,23 @@
+
+
+.pigeon-overlays{
+    width: 2000px!important;
+
+}
+
+.pigeon-tiles-box{ 
+}
+
+.pigeon-zoom-in, .pigeon-zoom-out{
+margin-left:25px;
+margin-top:25px;
+
+}
+ 
+Map {
+    position:static!important;
+ 
+}
+
+.pigeon-attribution{
+    height: 50px!important;}
