@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import logo from "../../components/images/logo.png";
 import Search from "../Search/Search";
 
-const MyNavbarRest = () => {
+const MyNavbarRest = ({ handleSearch, handleFilter, handleUserInput }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="/">
           <Image className="ms-0" src={logo} style={{ width: "160px", height: "60px" }} />
         </Navbar.Brand>
-        <Search />
+        <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
           <Nav>
@@ -28,6 +28,7 @@ const MyNavbarRest = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    // <Search className="search-bar" handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} style={{ position: "absolute", top: "0" }} />
   );
 };
 

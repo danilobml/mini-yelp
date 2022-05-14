@@ -4,18 +4,13 @@ import data from "../data/data.json";
 import Footer from "./Footer/Footer";
 import Search from "./Search/Search";
 import SmallCard from "./SmallCard/SmallCard";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
 import MapAll from "./MapAll/MapAll";
 import "./Home.css";
-
-import MyNavbar from "../Navbar/MyNavbar";
+import MyNavbarRest from "../components/Restaurant/MyNavbarRest";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Image, Container, Row } from "react-bootstrap";
 import logoM from "./images/logo-main.png";
-
 
 //  import BarLoader from "react-spinners/BarLoader";
 //import ClipLoader from "react-spinners/ClipLoader";
@@ -23,15 +18,13 @@ import logoM from "./images/logo-main.png";
 function Home() {
   const restaurants = [...data];
   const [isError, setIsError] = useState(false);
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("restaurant");
   const [userInput, setUserInput] = useState("");
   const [searchText, setSearchText] = useState("");
   const searchRestaurant = (nameRestaurant) => {
     //setRestaurant(idRestaurant);
   };
   const randomRestaurant = Math.floor(Math.random() * restaurants.length);
-
-  console.log(searchText);
 
   /* /restaurants/id */
   //   useEffect(() => {
@@ -59,6 +52,9 @@ function Home() {
   //       });
   //   }, [restaurants]);
 
+  console.log(filter);
+  console.log(searchText);
+
   const handleFilter = (e) => {
     setFilter(e.target.value);
   };
@@ -82,6 +78,20 @@ function Home() {
     event.target.reset();
   };
 
+  // filter === restaurant || categories || city
+
+  const filterRestaurants = (restaurant) => {
+    if (filter === "restaurant") {
+      return restaurant.name.toLowerCase().includes(searchText.toLowerCase());
+    }
+    if (filter === "categories") {
+      return restaurant.categories.includes(searchText);
+    }
+    if (filter === "city") {
+      return restaurant.city.toLowerCase().includes(searchText.toLowerCase());
+    }
+  };
+
   if (isError) {
     return (
       <div className="Home">
@@ -91,25 +101,9 @@ function Home() {
   } else {
     return (
       <div className="Home">
-
-
-        <MyNavbar />
-        <Container>
-          <Image fluid src={restaurants[randomRestaurant].imgUrl} className="position-relative" />
-          <Image src={logoM} className="main-logo position-absolute" />
-          <Container className="postion-absolute">
-            <Search handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} style={{ position: "absolute", top: "0" }} />
-          </Container>
-        </Container>
-
-    
-
-
-   
-       
-
-        {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
-
+        <MyNavbarRest handleSearch={handleSearch} handleFilter={handleFilter} handleUserInput={handleUserInput} />
+        <Image fluid src={restaurants[randomRestaurant].imgUrl} className="home-image position-relative" />
+        <Image src={logoM} className="main-logo position-absolute" />
 
         <div className="smallCardAndMap">
           <div className="MapAll">
@@ -118,12 +112,7 @@ function Home() {
             {/*  {restaurants && restaurants.filter((restaurant) => restaurant.id !== null).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)} */}
           </div>
 
-          <div className="smallCards">
-            {restaurants &&
-              restaurants.map((restaurant, index) => (
-                <SmallCard key={index} restaurant={restaurant} />
-              ))}
-          </div>
+          <div className="smallCards">{restaurants && restaurants.filter(filterRestaurants).map((restaurant, index) => <SmallCard key={index} restaurant={restaurant} />)}</div>
         </div>
         <Footer />
       </div>
