@@ -1,4 +1,9 @@
 
+.Home{
+    text-align: center;
+    height: 2000px;
+}
+
 .main-logo {
     width: 250px;
     z-index: 1000;
@@ -12,24 +17,26 @@
 .smallCardAndMap {
     display: flex;
     flex-direction: column;
-    width: 2000px;
-    height: 1000px;
-    border-top-left-radius: 15px !important;
-    border-top-right-radius: 15px !important;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 1200px;
+    height: auto;
+    margin:auto;
+
 
 }
 
 .MapAll {
-    margin: 40px 20px;
+    margin: 40px auto;
     height: 100%;
-
     width: 100%;
-
     object-fit: cover;
 }
 
 .MapAll>div {
     border-radius: 35px !important;
+    height: 600px!important;
 
 }
 
@@ -39,9 +46,15 @@
 }
 
 .smallCards {
+
     display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    
+    flex-wrap: wrap;
     justify-content: space-around;
-    margin: auto;
+    margin:auto  ;
     text-align: center;
 
 }

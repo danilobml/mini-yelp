@@ -33,9 +33,9 @@ const MapAll = ({ restaurants }) => {
   if(latsDiff>30&&lngsDiff<25) zoomMap=3;
   if(latsDiff>15&&lngsDiff<25) zoomMap=4;
   if(latsDiff>5&&lngsDiff<15) zoomMap=6;
-  if(latsDiff>1&&lngsDiff<5) zoomMap=6;
-  if(latsDiff<0.1&&lngsDiff<1) zoomMap=8;
-  if(latsDiff<0.1&&lngsDiff<0.1){ zoomMap=10;}
+  if(latsDiff>1&&lngsDiff<5) zoomMap=8;
+  if(latsDiff<0.1&&lngsDiff<1) zoomMap=10;
+  if(latsDiff<0.1&&lngsDiff<0.1){ zoomMap=15;}
   else {zoomMap=1; console.log("lastcase")};
   console.log(zoomMap);
 

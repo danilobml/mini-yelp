@@ -13,7 +13,7 @@
 .containerFooter{
     text-align: center !important;
     height:20px;
-    margin: 30px 700px;
+    margin: 30px 500px;
    
 }
 
@@ -22,8 +22,8 @@
     align-items: center;
     align-content: center;
     text-align: center !important;
-    margin: auto; 
-    width:auto;  
+    margin: 0 100px; 
+    width:800px;  
     font-size: 12px;    
     overflow:hidden;
     

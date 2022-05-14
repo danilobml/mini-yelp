@@ -3,9 +3,10 @@
 .pigeon-overlays{
     width: 2000px!important;
 
+
 }
 
-.pigeon-tiles-box{ 
+.pigeon-tiles-box{     height: 1400px!important;
 }
 
 .pigeon-zoom-in, .pigeon-zoom-out{
