@@ -16,7 +16,7 @@ const Search = ({ handleFilter, handleSearch, handleUserInput }) => {
           <Form className="ms-0" onSubmit={(e) => handleSearch(e)}>
             <InputGroup>
               <FormControl placeholder="Search" onChange={(e) => handleUserInput(e)} />
-              <Button variant="primary" type="submit">
+              <Button variant="danger" type="submit">
                 Search
               </Button>
             </InputGroup>

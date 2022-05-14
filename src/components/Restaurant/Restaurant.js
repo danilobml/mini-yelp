@@ -1,20 +1,45 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Restaurant.css";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { useEffect, useState } from "react";
 import MyMap from "../../Map/MyMap";
 import Reviews from "./Reviews";
-import Search from "../Search/Search";
-import logo from "../images/logo.png";
+import MyNavbarRest from "./MyNavbarRest";
+import ReactStars from "react-stars";
 
 const Restaurant = ({ restaurants }) => {
+  const [openClosed, setOpenClosed] = useState("closed");
+
+  const setOpen = () => {
+    setOpenClosed("open");
+  };
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const date1 = new Date();
+  const timeNow = date1.getHours() + ":" + date1.getMinutes() + ":00";
+  let today = days[date1.getDay()];
+  let state = "closed";
+
+  const currentDayOpen = (day, time) => {
+    const startTime = time ? time.substring(0, 5) + ":00" : "";
+    const endTime = time ? time.substring(6, 11) + ":00" : "";
+    if (day === today && timeNow <= endTime && timeNow >= startTime) {
+      state = "open";
+    } else {
+      state = "closed";
+    }
+
+    return state;
+  };
+
+  useEffect(() => {
+    if (state === "open") setOpen();
+  }, [openClosed, state]);
+
   return (
     <Container>
       <Row className="my-3">
-        <Col sm={2} className="ms-0">
-          <img src={logo} style={{ width: "160px", height: "75px" }} />
-        </Col>
-        <Col sm={10} className="mt-2">
-          <Search />
+        <Col sm={12} className="ms-0">
+          <MyNavbarRest sm={6} />
         </Col>
       </Row>
       <Row className="my-3">
@@ -43,17 +68,19 @@ const Restaurant = ({ restaurants }) => {
               </ul>
               <br />
               <h5>Average Rating: {restaurants[0].stars}</h5>
+              <ReactStars count={5} onChange={null} edit={false} size={24} color2={"#ffd700"} value={restaurants[0].stars} />
             </Col>
             <Col></Col>
             <Col sm={3} className="mt-4 ms-4">
               <h5>Opening Hours</h5>
-              <p>Monday: {restaurants[0].hours.Monday}</p>
-              <p>Tuesday: {restaurants[0].hours.Tuesday}</p>
-              <p>Wednesday: {restaurants[0].hours.Wednesday}</p>
-              <p>Thursday: {restaurants[0].hours.Thursday}</p>
-              <p>Friday: {restaurants[0].hours.Friday}</p>
-              <p>Saturday: {restaurants[0].hours.Saturday}</p>
-              <p>Sunday: {restaurants[0].hours.Sunday}</p>
+              {Object.keys(restaurants[0].hours).map((x, index) => (
+                <p key={index} className={x === today ? currentDayOpen(x, restaurants[0].hours[x]) : ""}>
+                  {x + ": " + restaurants[0].hours[x]}
+                </p>
+              ))}{" "}
+              <p>
+                <strong>{openClosed}</strong>
+              </p>
             </Col>
           </Row>
           <Row>
