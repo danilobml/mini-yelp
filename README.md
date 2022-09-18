@@ -9,3 +9,5 @@ https://mini-yelp.netlify.app/
 ## Front-end Tooling:
 - React
 - React-Bootstrap 5 for the UI Library
+
+*Made in collaboration with: https://github.com/GustavoKoch
