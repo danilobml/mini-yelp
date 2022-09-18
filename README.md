@@ -1,6 +1,6 @@
 # Welp 
 
-## A clone of the well-known website Yelp, done with React, and Bootstrap. It was part of a team-work project - the backend and database were developed by another developer. 
+## A clone of the well-known website Yelp, done with React, and Bootstrap. It was part of a team-work project - the backend and database were created by another developer. 
 
 ## Live version:
 
